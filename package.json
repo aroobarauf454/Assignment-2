@@ -34,9 +34,11 @@
 		"@auth/drizzle-adapter": "^1.11.1",
 		"@auth/sveltekit": "^1.11.1",
 		"@google/generative-ai": "^0.24.1",
+		"@tailwindcss/typography": "^0.5.19",
 		"ai": "^6.0.116",
 		"bcryptjs": "^3.0.3",
 		"drizzle-orm": "^0.45.1",
+		"marked": "^17.0.4",
 		"nodemailer": "^7.0.13",
 		"postgres": "^3.4.8"
 	}

@@ -20,35 +20,47 @@
 				<div class="hidden items-center gap-1 sm:flex">
 					<a
 						href="/dashboard"
-						class="rounded-lg px-3 py-2 text-sm font-medium transition {isActive('/dashboard')
+						class="inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition {isActive('/dashboard')
 							? 'bg-indigo-50 text-indigo-700'
 							: 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'}"
 					>
+						<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+						</svg>
 						Dashboard
 					</a>
 					<a
 						href="/chat"
-						class="rounded-lg px-3 py-2 text-sm font-medium transition {isActive('/chat')
+						class="inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition {isActive('/chat')
 							? 'bg-indigo-50 text-indigo-700'
 							: 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'}"
 					>
+						<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+						</svg>
 						AI Chat
 					</a>
 					<a
 						href="/profile"
-						class="rounded-lg px-3 py-2 text-sm font-medium transition {isActive('/profile')
+						class="inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition {isActive('/profile')
 							? 'bg-indigo-50 text-indigo-700'
 							: 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'}"
 					>
+						<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+						</svg>
 						Profile
 					</a>
 					{#if session?.user?.role === 'admin'}
 						<a
 							href="/admin"
-							class="rounded-lg px-3 py-2 text-sm font-medium transition {isActive('/admin')
+							class="inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition {isActive('/admin')
 								? 'bg-indigo-50 text-indigo-700'
 								: 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'}"
 						>
+							<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+							</svg>
 							Admin
 						</a>
 					{/if}
@@ -76,8 +88,11 @@
 					</div>
 					<button
 						onclick={() => signOut()}
-						class="rounded-lg border border-gray-200 px-4 py-2 text-sm font-medium text-gray-700 transition hover:bg-red-50 hover:text-red-600 hover:border-red-200"
+						class="inline-flex items-center gap-1.5 rounded-lg border border-gray-200 px-4 py-2 text-sm font-medium text-gray-700 transition hover:border-red-200 hover:bg-red-50 hover:text-red-600"
 					>
+						<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
+						</svg>
 						Sign Out
 					</button>
 				</div>
@@ -97,14 +112,20 @@
 			{:else}
 				<a
 					href="/login"
-					class="rounded-lg px-4 py-2 text-sm font-medium text-gray-700 transition hover:bg-gray-100"
+					class="inline-flex items-center gap-1.5 rounded-lg px-4 py-2 text-sm font-medium text-gray-700 transition hover:bg-gray-100"
 				>
+					<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
+					</svg>
 					Sign In
 				</a>
 				<a
 					href="/register"
-					class="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-indigo-700 hover:shadow-md"
+					class="inline-flex items-center gap-1.5 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-indigo-700 hover:shadow-md"
 				>
+					<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.75 0v.109A12.318 12.318 0 0110.374 21c-2.331 0-4.512-.645-6.374-1.766z" />
+					</svg>
 					Sign Up
 				</a>
 			{/if}
@@ -131,45 +152,60 @@
 				<a
 					href="/dashboard"
 					onclick={() => (mobileOpen = false)}
-					class="block rounded-lg px-3 py-2.5 text-sm font-medium transition {isActive('/dashboard')
+					class="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm font-medium transition {isActive('/dashboard')
 						? 'bg-indigo-50 text-indigo-700'
 						: 'text-gray-700 hover:bg-gray-50'}"
 				>
+					<svg class="h-4.5 w-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+					</svg>
 					Dashboard
 				</a>
 				<a
 					href="/chat"
 					onclick={() => (mobileOpen = false)}
-					class="block rounded-lg px-3 py-2.5 text-sm font-medium transition {isActive('/chat')
+					class="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm font-medium transition {isActive('/chat')
 						? 'bg-indigo-50 text-indigo-700'
 						: 'text-gray-700 hover:bg-gray-50'}"
 				>
+					<svg class="h-4.5 w-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+					</svg>
 					AI Chat
 				</a>
 				<a
 					href="/profile"
 					onclick={() => (mobileOpen = false)}
-					class="block rounded-lg px-3 py-2.5 text-sm font-medium transition {isActive('/profile')
+					class="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm font-medium transition {isActive('/profile')
 						? 'bg-indigo-50 text-indigo-700'
 						: 'text-gray-700 hover:bg-gray-50'}"
 				>
+					<svg class="h-4.5 w-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+					</svg>
 					Profile
 				</a>
 				{#if session?.user?.role === 'admin'}
 					<a
 						href="/admin"
 						onclick={() => (mobileOpen = false)}
-						class="block rounded-lg px-3 py-2.5 text-sm font-medium transition {isActive('/admin')
+						class="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm font-medium transition {isActive('/admin')
 							? 'bg-indigo-50 text-indigo-700'
 							: 'text-gray-700 hover:bg-gray-50'}"
 					>
+						<svg class="h-4.5 w-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+						</svg>
 						Admin
 					</a>
 				{/if}
 				<button
 					onclick={() => signOut()}
-					class="mt-2 w-full rounded-lg border border-red-200 bg-red-50 px-3 py-2.5 text-left text-sm font-medium text-red-600 transition hover:bg-red-100"
+					class="mt-2 flex w-full items-center gap-2.5 rounded-lg border border-red-200 bg-red-50 px-3 py-2.5 text-left text-sm font-medium text-red-600 transition hover:bg-red-100"
 				>
+					<svg class="h-4.5 w-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
+					</svg>
 					Sign Out
 				</button>
 			</div>

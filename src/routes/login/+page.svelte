@@ -48,6 +48,7 @@
 
 				<form
 					method="POST"
+					autocomplete="off"
 					use:enhance={() => {
 						loading = true;
 						return async ({ update }) => {
@@ -64,6 +65,7 @@
 							name="email"
 							type="email"
 							required
+							autocomplete="off"
 							value={form?.email ?? ''}
 							class="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-gray-900 transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 focus:outline-none"
 							placeholder="you@example.com"
@@ -78,6 +80,7 @@
 							name="password"
 							type="password"
 							required
+							autocomplete="off"
 							class="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-gray-900 transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 focus:outline-none"
 							placeholder="Enter your password"
 						/>

@@ -9,7 +9,10 @@ CREATE TABLE IF NOT EXISTS users (
     email TEXT UNIQUE NOT NULL,
     email_verified TIMESTAMP,
     image TEXT,
-    hashed_password TEXT
+    hashed_password TEXT,
+    role TEXT NOT NULL DEFAULT 'user',
+    disabled TIMESTAMP,
+    created_at TIMESTAMP DEFAULT NOW()
 );
 
 -- OAuth accounts table (Google, GitHub, etc.)
@@ -41,4 +44,22 @@ CREATE TABLE IF NOT EXISTS verification_tokens (
     token TEXT NOT NULL,
     expires TIMESTAMP NOT NULL,
     PRIMARY KEY (identifier, token)
+);
+
+-- Chats table
+CREATE TABLE IF NOT EXISTS chats (
+    id TEXT PRIMARY KEY DEFAULT gen_random_uuid()::TEXT,
+    user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    title TEXT NOT NULL DEFAULT 'New Chat',
+    created_at TIMESTAMP NOT NULL DEFAULT NOW()
+);
+
+-- Chat messages table
+CREATE TABLE IF NOT EXISTS chat_messages (
+    id TEXT PRIMARY KEY DEFAULT gen_random_uuid()::TEXT,
+    chat_id TEXT NOT NULL REFERENCES chats(id) ON DELETE CASCADE,
+    parent_id TEXT,
+    role TEXT NOT NULL,
+    content TEXT NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT NOW()
 );
