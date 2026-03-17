@@ -34,6 +34,16 @@
 					>
 						Profile
 					</a>
+					{#if session?.user?.role === 'admin'}
+						<a
+							href="/admin"
+							class="rounded-lg px-3 py-2 text-sm font-medium transition {isActive('/admin')
+								? 'bg-indigo-50 text-indigo-700'
+								: 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'}"
+						>
+							Admin
+						</a>
+					{/if}
 				</div>
 			{/if}
 		</div>
@@ -128,6 +138,17 @@
 				>
 					Profile
 				</a>
+				{#if session?.user?.role === 'admin'}
+					<a
+						href="/admin"
+						onclick={() => (mobileOpen = false)}
+						class="block rounded-lg px-3 py-2.5 text-sm font-medium transition {isActive('/admin')
+							? 'bg-indigo-50 text-indigo-700'
+							: 'text-gray-700 hover:bg-gray-50'}"
+					>
+						Admin
+					</a>
+				{/if}
 				<button
 					onclick={() => signOut()}
 					class="mt-2 w-full rounded-lg border border-red-200 bg-red-50 px-3 py-2.5 text-left text-sm font-medium text-red-600 transition hover:bg-red-100"

@@ -6,6 +6,7 @@ import {
 	primaryKey
 } from 'drizzle-orm/pg-core';
 import type { AdapterAccountType } from '@auth/core/adapters';
+import type { InferSelectModel } from 'drizzle-orm';
 
 export const users = pgTable('users', {
 	id: text('id')
@@ -15,7 +16,10 @@ export const users = pgTable('users', {
 	email: text('email').unique().notNull(),
 	emailVerified: timestamp('email_verified', { mode: 'date' }),
 	image: text('image'),
-	hashedPassword: text('hashed_password')
+	hashedPassword: text('hashed_password'),
+	role: text('role').notNull().default('user'),
+	disabled: timestamp('disabled', { mode: 'date' }),
+	createdAt: timestamp('created_at', { mode: 'date' }).defaultNow()
 });
 
 export const accounts = pgTable(
@@ -57,3 +61,5 @@ export const verificationTokens = pgTable(
 		primaryKey({ columns: [verificationToken.identifier, verificationToken.token] })
 	]
 );
+
+export type User = InferSelectModel<typeof users>;
