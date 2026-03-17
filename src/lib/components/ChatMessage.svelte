@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { marked } from 'marked';
+
 	let {
 		role,
 		content,
@@ -18,6 +20,10 @@
 	let copied = $state(false);
 	let editing = $state(false);
 	let editText = $state(content);
+
+	let renderedContent = $derived(
+		role !== 'user' ? marked.parse(content, { async: false }) as string : ''
+	);
 
 	function copyToClipboard() {
 		navigator.clipboard.writeText(content);
@@ -68,8 +74,12 @@
 						Cancel
 					</button>
 				</div>
-			{:else}
+			{:else if role === 'user'}
 				<div class="whitespace-pre-wrap">{content}</div>
+			{:else}
+				<div class="prose prose-sm max-w-none prose-p:my-1 prose-headings:my-2 prose-ul:my-1 prose-ol:my-1 prose-li:my-0 prose-table:my-2 prose-pre:my-2 prose-pre:bg-gray-800 prose-pre:text-gray-100 prose-code:text-indigo-600 prose-code:before:content-[''] prose-code:after:content-['']">
+					{@html renderedContent}
+				</div>
 			{/if}
 		</div>
 
