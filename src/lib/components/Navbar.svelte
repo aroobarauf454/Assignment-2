@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { signOut } from '@auth/sveltekit/client';
 	import { page } from '$app/stores';
-	import type { Session } from '@auth/core/types';
+	import type { Session } from '@auth/sveltekit';
 	import Logo from './Logo.svelte';
 
 	let { session }: { session: Session | null } = $props();
