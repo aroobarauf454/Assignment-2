@@ -27,6 +27,14 @@
 						Dashboard
 					</a>
 					<a
+						href="/chat"
+						class="rounded-lg px-3 py-2 text-sm font-medium transition {isActive('/chat')
+							? 'bg-indigo-50 text-indigo-700'
+							: 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'}"
+					>
+						AI Chat
+					</a>
+					<a
 						href="/profile"
 						class="rounded-lg px-3 py-2 text-sm font-medium transition {isActive('/profile')
 							? 'bg-indigo-50 text-indigo-700'
@@ -128,6 +136,15 @@
 						: 'text-gray-700 hover:bg-gray-50'}"
 				>
 					Dashboard
+				</a>
+				<a
+					href="/chat"
+					onclick={() => (mobileOpen = false)}
+					class="block rounded-lg px-3 py-2.5 text-sm font-medium transition {isActive('/chat')
+						? 'bg-indigo-50 text-indigo-700'
+						: 'text-gray-700 hover:bg-gray-50'}"
+				>
+					AI Chat
 				</a>
 				<a
 					href="/profile"
