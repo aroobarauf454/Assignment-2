@@ -55,14 +55,14 @@ export const load: PageServerLoad = async () => {
 export const actions: Actions = {
 	toggleRole: async ({ request, locals }) => {
 		const session = await locals.auth();
-		if (!session || session.user.role !== 'admin') {
+		if (!session?.user || session.user.role !== 'admin') {
 			return fail(403, { error: 'Unauthorized' });
 		}
 
 		const formData = await request.formData();
 		const userId = formData.get('userId') as string;
 
-		if (userId === session.user.id) {
+		if (userId === session.user?.id) {
 			return fail(400, { error: 'Cannot change your own role' });
 		}
 
@@ -77,14 +77,14 @@ export const actions: Actions = {
 
 	toggleDisable: async ({ request, locals }) => {
 		const session = await locals.auth();
-		if (!session || session.user.role !== 'admin') {
+		if (!session?.user || session.user.role !== 'admin') {
 			return fail(403, { error: 'Unauthorized' });
 		}
 
 		const formData = await request.formData();
 		const userId = formData.get('userId') as string;
 
-		if (userId === session.user.id) {
+		if (userId === session.user?.id) {
 			return fail(400, { error: 'Cannot disable yourself' });
 		}
 

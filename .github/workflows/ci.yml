@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint-and-check:
+    name: Lint, Type Check & Build
+    runs-on: ubuntu-latest
+
+    env:
+      AUTH_SECRET: ci-placeholder
+      AUTH_TRUST_HOST: "true"
+      GEMINI_API_KEY: ci-placeholder
+      DATABASE_URL: postgresql://postgres:1234@localhost:5432/sveltekit_auth
+      SMTP_HOST: smtp.example.com
+      SMTP_PORT: "587"
+      SMTP_USER: ci@example.com
+      SMTP_PASSWORD: ci-placeholder
+      EMAIL_FROM: ci@example.com
+      ORIGIN: http://localhost:5173
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Sync SvelteKit
+        run: pnpm prepare
+
+      - name: Svelte check (type checking)
+        run: pnpm check
+
+      - name: Build
+        run: pnpm build

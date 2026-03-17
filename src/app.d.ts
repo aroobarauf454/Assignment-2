@@ -1,15 +1,16 @@
-import type { Session } from '@auth/core/types';
+import '@auth/sveltekit';
+
+declare module '@auth/sveltekit' {
+	interface User {
+		role?: string;
+		disabled?: Date | null;
+	}
+}
 
 declare module '@auth/core/types' {
-	interface Session {
-		user: {
-			id: string;
-			name?: string | null;
-			email?: string | null;
-			image?: string | null;
-			role?: string;
-			disabled?: Date | null;
-		};
+	interface User {
+		role?: string;
+		disabled?: Date | null;
 	}
 }
 
