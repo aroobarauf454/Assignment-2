@@ -118,6 +118,7 @@
 							onclick={() => onBranchChange!(siblingIndex - 1)}
 							disabled={siblingIndex === 0}
 							class="text-gray-400 transition hover:text-gray-600 disabled:opacity-30"
+							aria-label="Previous branch"
 						>
 							<svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
@@ -130,6 +131,7 @@
 							onclick={() => onBranchChange!(siblingIndex + 1)}
 							disabled={siblingIndex === siblingCount - 1}
 							class="text-gray-400 transition hover:text-gray-600 disabled:opacity-30"
+							aria-label="Next branch"
 						>
 							<svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />

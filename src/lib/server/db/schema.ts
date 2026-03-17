@@ -5,7 +5,7 @@ import {
 	integer,
 	primaryKey
 } from 'drizzle-orm/pg-core';
-import type { AdapterAccountType } from '@auth/core/adapters';
+import type { AdapterAccountType } from '@auth/sveltekit/adapters';
 import type { InferSelectModel } from 'drizzle-orm';
 
 export const users = pgTable('users', {
